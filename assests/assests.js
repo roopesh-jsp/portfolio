@@ -10,11 +10,12 @@ import react from "./react.png";
 import sql from "./sql.png";
 import tailwind from "./tailwind.png";
 import typescript from "./typescript.png";
-
+import logo from "./logo.png";
 export const assests = {
   cpp,
   django,
   express,
+  logo,
   food_prj,
   mongodb,
   nextjs,

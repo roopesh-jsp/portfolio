@@ -55,7 +55,7 @@ header ul {
   display: flex;
   gap: 20px;
   position: relative;
-  left: 20px;
+  left: 10px;
 }
 
 header ul li {
@@ -145,5 +145,209 @@ header button {
 
   .hamburger {
     display: block;
+  }
+}
+
+/* hero  */
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* background-color: #fff; */
+}
+#hero_1 {
+  width: 45%;
+}
+#hero_2 {
+  width: 45%;
+  display: flex;
+  justify-content: flex-end;
+}
+#hero h1 {
+  font-size: 40px;
+  font-family: "Sour Gummy", serif;
+  background: linear-gradient(
+    to right,
+
+    var(--dark-color),
+    var(--border-color),
+    var(--light-color),
+    var(--border-color),
+    var(--dark-color)
+  );
+  background-size: 300% 100%; /* Adjusts the size of the gradient for smooth animation */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 2.3s linear infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+
+#hero p {
+  font-weight: 300;
+}
+#hero img {
+  width: 450px;
+  height: 450px;
+}
+#hero .cta {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  margin-top: 40px;
+}
+.cta button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--dark-color);
+  color: var(--light-color);
+  background-color: var(--dark-color);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.4s;
+}
+.cta button:hover {
+  color: var(--dark-color);
+  background-color: var(--light-color);
+}
+
+@media (max-width: 1100px) {
+  #hero {
+    padding: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  #hero {
+    flex-direction: column;
+    margin-top: 100px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+  }
+  #hero_2 {
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #hero_1 {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    top: 50px;
+  }
+  #hero .cta {
+    justify-content: center;
+  }
+  #hero p {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 700px) {
+  #hero h1 {
+    font-size: 35px;
+  }
+  #hero p {
+    font-size: 15px;
+  }
+  #hero img {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 350px) {
+  #hero img {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+/* bio  */
+
+#bio {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  /* margin-top: 170px; */
+}
+#bio p {
+  /* text-align: center; */
+  font-weight: 300;
+  font-size: 18px;
+  width: 80%;
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  color: var(--light-color);
+  font-weight: 500;
+  padding: 20px;
+  padding-bottom: 90px;
+
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 85%,
+    74% 85%,
+    74% 100%,
+    58% 85%,
+    0 85%
+  );
+}
+
+#bio .cta {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+#bio_2 .cta button {
+  background-color: var(--light-color);
+  /* border: 2px solid var(--border-color); */
+
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.7s;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#bio_2 .cta button img {
+  height: 20px;
+  width: 20px;
+}
+#bio_2 .cta button:hover {
+  background-color: var(--primary-color);
+  border: 1px solid #ddd2e2;
+}
+@media (max-width: 700px) {
+  #bio p {
+    font-size: 15px;
+    padding-bottom: 100px;
+    width: 100%;
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 85%,
+      75% 86%,
+      75% 100%,
+      53% 86%,
+      0 86%
+    );
   }
 }

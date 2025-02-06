@@ -11,6 +11,12 @@ import sql from "./sql.png";
 import tailwind from "./tailwind.png";
 import typescript from "./typescript.png";
 import logo from "./logo.png";
+import hero from "./me_final.png";
+import git from "./github.svg";
+import linkedin from "./linkedin.svg";
+import gmail from "./gmail.svg";
+import leetcode from "./leetcode.svg";
+import whatsapp from "./whatsapp.svg";
 export const assests = {
   cpp,
   django,
@@ -25,4 +31,7 @@ export const assests = {
   sql,
   tailwind,
   typescript,
+  hero,
 };
+
+export const social_media = [git, linkedin, leetcode, gmail];

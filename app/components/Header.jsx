@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { LuMenu } from "react-icons/lu";
 
@@ -7,19 +8,26 @@ function Header() {
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  //controlling navbar by scrolling
+  // Define a threshold for when to hide/show the header
+  const scrollThreshold = 50; // Adjust this value based on how sensitive you want it to be
+
   const controlHeader = () => {
     // Current scroll position
     const currentScrollY = window.scrollY;
-    if (currentScrollY > lastScrollY) {
-      // If scrolling down, hide the header
-      setShowHeader(false);
-    } else {
-      // If scrolling up, show the header
-      setShowHeader(true);
+
+    // Check if scroll has passed the threshold
+    if (Math.abs(currentScrollY - lastScrollY) > scrollThreshold) {
+      if (currentScrollY > lastScrollY) {
+        // If scrolling down and past threshold, hide the header
+        setShowHeader(false);
+      } else {
+        // If scrolling up and past threshold, show the header
+        setShowHeader(true);
+      }
+
+      // Update the last scroll position
+      setLastScrollY(currentScrollY);
     }
-    // Update the last scroll position
-    setLastScrollY(currentScrollY);
   };
 
   // toggle navbar by hmburger
@@ -41,6 +49,7 @@ function Header() {
   useEffect(() => {
     if (showNav) {
       document.body.style.overflowY = "hidden";
+      setShowHeader(true);
     } else {
       document.body.style.overflowY = "auto";
     }
@@ -54,7 +63,8 @@ function Header() {
       {showNav ? <div className="overlay" onClick={toggleNav}></div> : <></>}
       <header
         style={{
-          transform: showHeader ? "translateY(0)" : "translateY(-100%)",
+          transform:
+            showHeader || showNav ? "translateY(0)" : "translateY(-100%)",
         }}
       >
         <div className="logo">
@@ -64,21 +74,25 @@ function Header() {
 
         <nav>
           <ul className={showNav ? "active" : ""}>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/">About</a>
-            </li>
-            <li>
-              <a href="/">projects</a>
-            </li>
-            <li>
-              <a href="/">Contact</a>
-            </li>
+            <a href="/">
+              <li onClick={() => setShowNav(false)}>Home</li>
+            </a>
+            <a href="#bio">
+              <li onClick={() => setShowNav(false)}>About</li>
+            </a>
+            <a href="/">
+              <li onClick={() => setShowNav(false)}>projects</li>
+            </a>
+            <a href="/">
+              <li onClick={() => setShowNav(false)}>Contact</li>
+            </a>
           </ul>
         </nav>
-        <button className="contact">contact</button>
+        <button className="contact">
+          <Link href="mailto:rupzkumar5@gmail.com" target="_blank">
+            contact
+          </Link>
+        </button>
 
         <div className="hamburger" onClick={toggleNav}>
           <LuMenu className="ham" />

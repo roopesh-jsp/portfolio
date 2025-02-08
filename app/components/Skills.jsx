@@ -4,16 +4,19 @@ import React from "react";
 
 function Skills() {
   return (
-    <div className="skills">
-      {skills.map((skill, idx) => (
-        <a href={skill.link} target="_blank" key={idx}>
-          <div className="skill">
-            <Image src={skill.img} alt="skills"></Image>
-            <span>{skill.name}</span>
-          </div>
-        </a>
-      ))}
-    </div>
+    <>
+      <h1 className="skills_heading">skill set</h1>
+      <div className="skills">
+        {skills.map((skill, idx) => (
+          <a href={skill.link} target="_blank" key={idx}>
+            <div className="skill">
+              <Image src={skill.img} alt="skills"></Image>
+              <span>{skill.name}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </>
   );
 }
 

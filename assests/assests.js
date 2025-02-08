@@ -63,7 +63,7 @@ export const skills = [
   { name: "nextjs", img: nextjs, link: "https://nextjs.org/" },
   { name: "tailwind", img: tailwind, link: "https://tailwindcss.com/" },
   {
-    name: "typescript",
+    name: "ts",
     img: typescript,
     link: "https://www.typescriptlang.org/",
   },

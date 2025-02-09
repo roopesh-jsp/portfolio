@@ -15,11 +15,17 @@ function Hero() {
           by curiosity and a passion for continuous growth
         </p>
         <div className="cta">
-          <Link href="mailto:rupzkumar5@gmail.com" target="_blank">
-            <button>contact me</button>
+          <Link
+            href="mailto:rupzkumar5@gmail.com?subject=Let's%20Connect&body=Hi,%20I'd%20like%20to%20reach%20out%20regarding..."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="email-button">contact me</button>
           </Link>
 
-          <button>resume</button>
+          <Link href="/resume.pdf" download>
+            <button className="download-button">Resume</button>
+          </Link>
         </div>
         <div id="bio_2">
           <div className="cta">

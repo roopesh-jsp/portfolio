@@ -32,6 +32,7 @@ function Header() {
 
   // toggle navbar by hmburger
   function toggleNav() {
+    console.log("overlay");
     setShowNav((prev) => !prev);
   }
 
@@ -60,6 +61,7 @@ function Header() {
 
   return (
     <>
+      {console.log(showNav)}
       {showNav ? <div className="overlay" onClick={toggleNav}></div> : <></>}
       <header
         style={{
@@ -74,18 +76,15 @@ function Header() {
 
         <nav>
           <ul className={showNav ? "active" : ""}>
-            <a href="/">
+            <Link href="/">
               <li onClick={() => setShowNav(false)}>Home</li>
-            </a>
-            <a href="#bio">
+            </Link>
+            <Link href="/#bio">
               <li onClick={() => setShowNav(false)}>About</li>
-            </a>
-            <a href="/">
+            </Link>
+            <Link href="/#projects">
               <li onClick={() => setShowNav(false)}>projects</li>
-            </a>
-            <a href="/">
-              <li onClick={() => setShowNav(false)}>Contact</li>
-            </a>
+            </Link>
           </ul>
         </nav>
         <button className="contact">

@@ -84,6 +84,7 @@ export const skills = [
 
 export const top_prj = [
   {
+    id: 1,
     name: "order now",
     link: "https://github.com/roopesh-jsp/Food-order-full-stack-website",
     img: food_prj,
@@ -91,13 +92,16 @@ export const top_prj = [
       "A full-stack food ordering website built using the MERN stack, featuring distinct user and admin interfaces. The user interface allows customers to browse the menu, place orders, and track the status of their orders. The admin interface provides full control over the system, enabling management of menu items (add, edit, delete) and monitoring of all user orders. The UI is designed to offer an intuitive and seamless experience for both users and administrators.",
   },
   {
+    id: 2,
+
     name: "Chatz",
     link: "https://github.com/roopesh-jsp/chat-application---MERN-stack",
-    img: food_prj,
+    img: null,
     description:
       "A real-time chat application built using the MERN stack and WebSockets for seamless communication. The app supports both individual and group chats, with real-time messaging across all users. The group chat feature is admin-controlled, allowing the admin to add or remove users and modify the group name. The application is designed to provide smooth, instant communication with an intuitive user experience.",
   },
   {
+    id: 3,
     name: "Strides",
     link: "https://github.com/roopesh-jsp/strides2k25",
     img: strides,
@@ -105,6 +109,7 @@ export const top_prj = [
       "A single-page application (SPA) built using React, designed to organize and manage a college event. The mobile-responsive application was accessed by over 4,000 students, many of whom used it on their mobile devices for seamless event registration. The project received special recognition from faculty for its functionality and accessibility.",
   },
   {
+    id: 4,
     name: "appointment simulator",
     link: "https://github.com/roopesh-jsp/doctor-appointment-node-js-",
     img: doctor,
@@ -114,10 +119,12 @@ export const top_prj = [
 ];
 export const all_prj = [
   {
+    id: 11,
     name: "Quiz app",
     link: "https://github.com/roopesh-jsp/reactApps/tree/main/Quiz%20testline%20assignment",
     img: quiz_prj,
     description:
       "A simple quiz game built using React and an external API. The scoring system awards +1 point for each correct answer, -1 for incorrect answers, and 0 for unattempted questions, providing a straightforward and engaging experience for users.",
   },
+  ...top_prj,
 ];

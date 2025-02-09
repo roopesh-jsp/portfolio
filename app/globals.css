@@ -56,9 +56,9 @@ main {
 }
 header ul {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   position: relative;
-  left: 10px;
+  left: 20px;
 }
 
 header ul li {
@@ -67,7 +67,7 @@ header ul li {
   position: relative;
 }
 
-header ul li a:hover {
+header ul a li:hover {
   color: var(--primary-color);
   box-shadow: 0 2px 0 var(--primary-color);
   transform: scale(1.05); /* Slight scaling effect */
@@ -82,7 +82,14 @@ header button {
   letter-spacing: 1px;
   cursor: pointer;
   font-weight: 600;
-  padding: 10px 15px;
+  padding: 7px 13px;
+  border: 2px solid transparent;
+  box-sizing: content-box;
+  transition: all 0.3s linear;
+}
+header button:hover {
+  border: 2px solid var(--primary-color);
+  background-color: #fff;
 }
 
 .hamburger {
@@ -105,13 +112,16 @@ header button {
   background-color: var(--light-color);
 }
 .overlay {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
-  height: 100vh;
+  position: fixed; /* Ensure the overlay stays fixed to cover the entire screen */
+  background-color: rgba(0, 0, 0, 0.3); /* Slight transparency */
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
   top: 0;
+  left: 0;
   z-index: 10;
-  overflow: hidden;
+  overflow: hidden; /* Prevent scrolling when overlay is active */
 }
+
 @media (max-width: 560px) {
   header button {
     display: none;
@@ -367,7 +377,7 @@ header button {
 }
 
 /* skilss  */
-.skills {
+/* .skills {
   display: flex;
 
   flex-wrap: wrap;
@@ -379,38 +389,12 @@ header button {
   padding: 0 30px;
   gap: 40px;
 }
-.skill {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  cursor: pointer;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-.skill span {
-  text-transform: capitalize;
-  font-weight: 500;
-  text-align: center;
-  position: relative;
-  top: 5px;
-  font-size: 12px;
-}
+
 .skill img {
   width: 70px;
   height: 70px;
 }
-.skills_heading {
-  font-size: 40px;
-  text-transform: uppercase;
-  text-align: center;
-  margin: 50px 0;
-  font-family: "Sour Gummy", serif;
-  color: var(--border-color);
-}
+
 
 @media (max-width: 500px) {
   .skills_heading {
@@ -427,37 +411,110 @@ header button {
   .skills span {
     display: none;
   }
-}
-
-/* projects   */
-/* #projects {
-  margin-top: 40px;
-}
-
-.prj_cta {
-  display: flex;
-  gap: 20px;
-  
-  border: 2px solid var(--dark-color);
-  border-radius: 20px;
-  width: fit-content;
-  margin: 10px auto;
-  background-color: var(--primary-color);
-  color: var(--light-color);
-  padding: 20px 30px;
-}
-.prj_opt input {
-  height: 20px;
-  width: 20px;
-}
-.prj_opt {
-  display: flex;
-  align-items: center;
-  text-transform: capitalize;
-  font-size: 18px;
-  gap: 5px;
-  cursor: pointer;
 } */
+
+.skills_heading {
+  font-size: 40px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 50px 0;
+  font-family: "Sour Gummy", serif;
+  color: var(--border-color);
+}
+.skills {
+  width: 80%;
+  overflow: hidden;
+  margin: 50px auto;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.marque {
+  display: flex;
+  width: max-content;
+  gap: 40px;
+  overflow: hidden;
+  animation: marque 17s linear infinite;
+}
+
+.skills::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  top: 0;
+  left: -10px;
+  background: linear-gradient(to right, var(--light-color), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.skill {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.skill span {
+  text-transform: capitalize;
+  font-weight: 500;
+  text-align: center;
+  position: relative;
+  top: 5px;
+  font-size: 12px;
+}
+@keyframes marque {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marque img {
+  width: 50px;
+  height: 50px;
+}
+
+/* Duplicate the items to create a smooth transition */
+.skills::after {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  top: 0;
+  right: -10px;
+  background: linear-gradient(to left, var(--light-color), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+@media (min-width: 500px) {
+  .skill {
+    padding: 20px;
+  }
+  .marque img {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (min-width: 1020px) {
+  .marque {
+    gap: 70px;
+  }
+  .marque img {
+    width: 70px;
+    height: 70px;
+  }
+}
+/* projects   */
+
 /* Container for the radio buttons */
 .prj_cta {
   display: flex;
@@ -485,6 +542,7 @@ header button {
   font-weight: 500;
   margin-left: 5px;
   text-transform: capitalize;
+  cursor: pointer;
 }
 /* Create a custom radio button */
 .prj_opt input[type="radio"] + label::before {
@@ -509,7 +567,7 @@ header button {
 
 /* Hover effect on the radio button */
 .prj_opt input[type="radio"]:hover + label::before {
-  border-color: #4caf50;
+  border-color: var(--border-color);
 }
 
 #projects h1 {
@@ -526,4 +584,151 @@ header button {
   border-radius: 20px;
   width: fit-content;
   margin: 10px auto;
+}
+
+/* projects list  */
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  gap: 30px;
+}
+
+.prj img {
+  height: 200px; /* Increase the height to make it taller */
+  aspect-ratio: 9/16; /* Maintain portrait aspect ratio */
+  /* object-fit: cover; Ensure the image scales to cover the defined space */
+  width: auto; /* Allow width to adjust automatically based on height */
+  margin: 20px auto;
+  border-radius: 10px;
+}
+.img {
+  height: 200px; /* Increase the height to make it taller */
+  aspect-ratio: 9/16; /* Maintain portrait aspect ratio */
+  /* object-fit: cover; Ensure the image scales to cover the defined space */
+  width: auto; /* Allow width to adjust automatically based on height */
+  margin: 20px auto;
+  border-radius: 10px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 25px;
+}
+.img_2 {
+  background-color: #fff;
+  padding: 20px;
+}
+.prj {
+  background-color: #fff;
+  width: 300px;
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+.prj_details p {
+  font-size: 12px;
+  display: -webkit-box; /* Creates a flexbox-like behavior for multi-line truncation */
+  -webkit-box-orient: vertical; /* Defines the vertical orientation for the box */
+  overflow: hidden; /* Hides the overflowed text */
+  text-overflow: ellipsis; /* Adds ellipses at the end of the last visible line */
+  -webkit-line-clamp: 4; /* Limits the number of lines to show (adjust based on font size) */
+  max-height: 150px; /* Ensures the container doesn't exceed 150px height */
+  line-height: 1.6; /* Adjust the line-height to match your design */
+}
+.prj_details {
+  padding: 0 20px;
+}
+.prj_details h3 {
+  text-align: center;
+
+  text-transform: capitalize;
+  font-size: 20px;
+  margin-bottom: 5px;
+  font-family: "Sour Gummy", serif;
+}
+
+.prj_details button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin: 15px auto;
+  font-family: "exo 2", serif;
+}
+.prj_details a button {
+  color: #fff;
+}
+
+/* full project page  */
+.full_prj {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* gap: 30px; */
+  margin: 100px auto;
+  width: 90%;
+}
+.full_prj img {
+  height: 550px;
+  aspect-ratio: 9/16;
+  width: auto;
+  margin: 10px auto;
+  border: 1px dotted var(--border-color);
+  border-radius: 10px;
+}
+.full_prj h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 35px;
+  font-family: "Sour Gummy", serif;
+  color: var(--dark-color);
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+.full_prj p {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 400;
+  margin: 30px auto;
+  line-height: 1.6;
+}
+.btn {
+  border: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.full_prj button {
+  padding: 20px 25px;
+
+  font-weight: 700;
+  /* letter-spacing: 1px; */
+  font-size: 17px;
+  border-radius: 10px;
+}
+.btn:hover {
+  background-color: #8869b0;
+  /* color: var(--border-color); */
+  scale: 1.03;
+}
+@media (min-width: 600px) {
+  .full_prj img {
+    height: 450px;
+  }
 }

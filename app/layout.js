@@ -1,3 +1,4 @@
+import Header from "./components/Header";
 import "./globals.css";
 
 export const metadata = {
@@ -14,7 +15,12 @@ export default function RootLayout({ children }) {
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <main>
+          <Header />
+          {children}
+        </main>
+      </body>
     </html>
   );
 }

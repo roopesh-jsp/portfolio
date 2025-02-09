@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import ProjectsList from "./ProjectsList";
+import { all_prj, top_prj } from "@/assests/assests";
 
 function Projects() {
   const [filter, setFilter] = useState("top");
@@ -13,6 +15,7 @@ function Projects() {
             name="filter"
             id="top"
             value="top"
+            checked={filter === "top"}
             onChange={(e) => {
               if (e.target.checked) {
                 setFilter("top");
@@ -27,6 +30,7 @@ function Projects() {
             name="filter"
             id="all"
             value="all"
+            checked={filter === "all"}
             onChange={(e) => {
               if (e.target.checked) {
                 setFilter("all");
@@ -36,7 +40,7 @@ function Projects() {
           <label htmlFor="all">all</label>
         </div>
       </div>
-      {filter}
+      <ProjectsList projects={filter === "all" ? all_prj : top_prj} />
     </div>
   );
 }

@@ -10,7 +10,7 @@ function ProjectsList({ projects }) {
           {prj.img ? (
             <Image src={prj.img} alt={prj.name} />
           ) : (
-            <div className="img">image comming soon</div>
+            <div className="img">image coming soon</div>
           )}
 
           <div className="prj_details">

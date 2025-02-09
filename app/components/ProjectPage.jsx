@@ -13,7 +13,7 @@ function ProjectPage({ project }) {
           {project.img ? (
             <Image src={project.img} alt={project.name} />
           ) : (
-            <div className="img img_2">image comming soon</div>
+            <div className="img img_2">image coming soon</div>
           )}
           <p>{[project.description]}</p>
           <Link href={project.link} target="_blank">

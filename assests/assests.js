@@ -106,7 +106,7 @@ export const top_prj = [
     link: "https://github.com/roopesh-jsp/strides2k25",
     img: strides,
     description:
-      "A single-page application (SPA) built using React, designed to organize and manage a college event. The mobile-responsive application was accessed by over 4,000 students, many of whom used it on their mobile devices for seamless event registration. The project received special recognition from faculty for its functionality and accessibility.",
+      "A single-page application (SPA) built using React, designed to organize and manage a collage event. The mobile-responsive application was accessed by over 4,000 students, many of whom used it on their mobile devices for seamless event registration. The project received special recognization from faculity for its functionality and accessibility.",
   },
   {
     id: 4,
